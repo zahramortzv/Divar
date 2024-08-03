@@ -14,7 +14,8 @@ function Router() {
     if (isLoading) return <Loader />
     return (
         <Routes>
-            <Route path="/" element={<HomePage />} />
+            {/* 09189990099 admin */}
+            <Route path="/" element={data ? <HomePage /> : <NotFoundPage />} />
             <Route path="/dashboard" element={data ? <DashboardPage /> : <Navigate to="/auth" />} />
             <Route path="/auth" element={data ? <Navigate to="/dashboard" /> : <AuthPage />} />
             <Route path="/admin" element={data && data.data.role === "ADMIN" ? <AdminPage /> : <Navigate to="/" />} />
