@@ -14,12 +14,14 @@ function CheckOtpForm({ mobile, code, setCode, setStep }) {
 
         if (code.length !== 5) return;
         const { response, error } = await checkOtp(mobile, code);
+
         if (response) {
             setCookie(response.data);
             navigate("/");
             refetch();
         }
         if (error) console.log(error.response.data.message)
+
     }
 
     return (
