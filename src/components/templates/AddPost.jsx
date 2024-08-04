@@ -5,7 +5,7 @@ import { useState } from "react";
 import { getCategory } from "../../services/admin";
 import { getCookie } from "../../utils/cookie";
 import axios from "axios";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 function AddPost() {
 

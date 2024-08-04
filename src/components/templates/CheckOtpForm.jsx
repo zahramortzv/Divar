@@ -4,17 +4,17 @@ import { setCookie } from "../../utils/cookie";
 import { useQuery } from "@tanstack/react-query";
 import { getProfile } from "../../services/user";
 import styles from "./CheckOtpForm.module.css";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 function CheckOtpForm({ mobile, code, setCode, setStep, otpResponse }) {
     const navigate = useNavigate();
     const { refetch } = useQuery(["profile"], getProfile);
 
-    const otpCode = otpResponse.data?.otp.code;
-    toast.success(`کد تایید شما: ${otpCode}`, {
-        autoClose: 10000,
-        toastId: "my-toast",
-    });
+    if (!toast.isActive("my-toast")) {
+        toast.success(`کد تایید شما: ${otpResponse.data?.otp.code}`, {
+            autoClose: 10000,
+        }, { toastId: "my-toast" });
+    }
 
     const submitHandler = async (e) => {
         e.preventDefault();
