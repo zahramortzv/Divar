@@ -24,7 +24,6 @@ function App() {
             draggable
             pauseOnHover
             theme="light"
-            toastStyle={{ fontFamily: "IRANSansX", fontWeight: "500" }}
           />
         </Layout>
       </BrowserRouter>
