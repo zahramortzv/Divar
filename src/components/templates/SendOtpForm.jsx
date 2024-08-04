@@ -1,13 +1,14 @@
 import { sendOtp } from "../../services/auth";
 import styles from "./SendOtpForm.module.css";
 
-function SendOtpForm({ mobile, setMobile, setStep }) {
+function SendOtpForm({ mobile, setMobile, setStep, setOtpResponse }) {
 
     const submitHandler = async (e) => {
         e.preventDefault()
         if (mobile.length !== 11) return;
 
         const { response, error } = await sendOtp(mobile);
+        setOtpResponse(response)
         if (response) setStep(2);
         if (error) console.log(error.response.data.message)
     }
