@@ -10,7 +10,7 @@ function SendOtpForm({ mobile, setMobile, setStep, setOtpResponse }) {
         const { response, error } = await sendOtp(mobile);
         setOtpResponse(response)
         if (response) setStep(2);
-        if (error) console.log(error.response.data.message)
+        if (error) console.log("error.response.data.message")
     }
 
     return (

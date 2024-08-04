@@ -24,7 +24,7 @@ function CheckOtpForm({ mobile, code, setCode, setStep, otpResponse }) {
             navigate("/");
             refetch();
         }
-        if (error) console.log(error.response.data.message)
+        if (error) console.log("error.response.data.message")
 
     }
 
