@@ -10,7 +10,7 @@ function CheckOtpForm({ mobile, code, setCode, setStep, otpResponse }) {
     const navigate = useNavigate();
     const { refetch } = useQuery(["profile"], getProfile);
 
-    toast.success(`کد تایید شما: ${otpResponse.data.otp.code}`, {
+    toast.success(`کد تایید شما: ${otpResponse.data?.otp.code}`, {
         autoClose: 10000,
     });
 
